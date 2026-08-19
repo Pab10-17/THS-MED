@@ -1,3 +1,4 @@
+import time
 import requests
 from bs4 import BeautifulSoup
 
@@ -7,12 +8,28 @@ from src.calendar_builder import build_calendar
 
 events = []
 
+headers = {
+    "User-Agent": "Mozilla/5.0"
+}
+
 for link in get_event_links():
+    print(f"Fetching {link}")
+
     response = requests.get(
         link,
-        headers={"User-Agent": "Mozilla/5.0"},
+        headers=headers,
         timeout=30,
     )
+
+    if response.status_code == 429:
+        print("Rate limited - waiting 5 seconds...")
+        time.sleep(5)
+
+        response = requests.get(
+            link,
+            headers=headers,
+            timeout=30,
+        )
 
     response.raise_for_status()
 
@@ -23,9 +40,11 @@ for link in get_event_links():
 
     events.append(event)
 
+    time.sleep(1)
+
 calendar = build_calendar(events)
 
 with open("THS-MED.ics", "wb") as f:
     f.write(calendar.to_ical())
 
-print(f"Created calendar with {len(events)} events")
+print(f"\nCreated calendar with {len(events)} events")
