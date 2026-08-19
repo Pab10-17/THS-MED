@@ -1,16 +1,8 @@
-import requests
+from src.scraper import get_event_links
 
-url = "https://www.tottenhamhotspurstadium.com/events"
+links = get_event_links()
 
-print("Downloading:", url)
+print(f"Found {len(links)} event links")
 
-response = requests.get(
-    url,
-    headers={
-        "User-Agent": "Mozilla/5.0"
-    },
-    timeout=30
-)
-
-print("Status Code:", response.status_code)
-print("Downloaded", len(response.text), "characters")
+for link in links:
+    print(link)
