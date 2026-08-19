@@ -1,47 +1,38 @@
 import requests
-from bs4 import BeautifulSoup
 
 BASE_URL = "https://www.tottenhamhotspurstadium.com"
 
+API_URL = (
+    "https://api.tottenhamhotspurstadium.com/content/"
+    "thstadium/text/EN?limit=100&offset=0&tagExpression=(%22event:2026%22)"
+)
 
-def get_events_page():
+
+def get_event_links():
     response = requests.get(
-        f"{BASE_URL}/events",
+        API_URL,
         headers={"User-Agent": "Mozilla/5.0"},
         timeout=30,
     )
 
     response.raise_for_status()
 
-    return BeautifulSoup(response.text, "html.parser")
-
-
-def get_event_links():
-    soup = get_events_page()
+    data = response.json()
 
     links = []
 
-    # Look at every event card
-    for card in soup.select(".w-event-listing__item"):
-        title = card.select_one(".w-event-listing__event-title")
+    for item in data.get("content", []):
+        title = item.get("title", "")
+        slug = item.get("titleUrlSegment", "")
 
-        if title:
-            print("Found:", title.get_text(strip=True))
+        if not slug:
+            continue
 
-        link = card.find("a", href=True)
+        url = f"{BASE_URL}/events/{item['id']}/{slug}"
 
-        if link:
-            href = link["href"]
+        print(title)
+        print(url)
 
-            if href.startswith("/"):
-                href = BASE_URL + href
-
-            if href not in links:
-                links.append(href)
-
-    print(f"\nFound {len(links)} links:\n")
-
-    for link in links:
-        print(link)
+        links.append(url)
 
     return links
