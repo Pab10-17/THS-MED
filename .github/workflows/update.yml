@@ -1,1 +1,12 @@
+name: Update THS-MED Calendar
 
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: echo "Hello Pablo!"
