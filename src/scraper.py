@@ -21,14 +21,27 @@ def get_event_links():
 
     links = []
 
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
+    # Look at every event card
+    for card in soup.select(".w-event-listing__item"):
+        title = card.select_one(".w-event-listing__event-title")
 
-        if "/events/" in href:
+        if title:
+            print("Found:", title.get_text(strip=True))
+
+        link = card.find("a", href=True)
+
+        if link:
+            href = link["href"]
+
             if href.startswith("/"):
                 href = BASE_URL + href
 
             if href not in links:
                 links.append(href)
+
+    print(f"\nFound {len(links)} links:\n")
+
+    for link in links:
+        print(link)
 
     return links
