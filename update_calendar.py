@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
 
 url = "https://www.tottenhamhotspurstadium.com/events/1075568/jay-z"
 
@@ -11,19 +10,7 @@ response = requests.get(
 
 response.raise_for_status()
 
-soup = BeautifulSoup(response.text, "html.parser")
+with open("jayz.html", "w", encoding="utf-8") as f:
+    f.write(response.text)
 
-print("=== H1 ===")
-
-for h1 in soup.find_all("h1"):
-    print(h1.get_text(strip=True))
-
-print("\n=== H2 ===")
-
-for h2 in soup.find_all("h2"):
-    print(h2.get_text(strip=True))
-
-print("\n=== H3 ===")
-
-for h3 in soup.find_all("h3"):
-    print(h3.get_text(strip=True))
+print("Saved HTML")
