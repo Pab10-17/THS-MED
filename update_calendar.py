@@ -10,7 +10,6 @@ response = requests.get(
 
 response.raise_for_status()
 
-with open("jayz.html", "w", encoding="utf-8") as f:
-    f.write(response.text)
+text = response.text
 
-print("Saved HTML")
+print(text[:5000])
