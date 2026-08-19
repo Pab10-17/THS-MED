@@ -3,12 +3,11 @@ from bs4 import BeautifulSoup
 
 from src.scraper import get_event_links
 from src.parser import parse_event
+from src.calendar_builder import build_calendar
 
-links = get_event_links()
+events = []
 
-print(f"Found {len(links)} events\n")
-
-for link in links:
+for link in get_event_links():
 
     response = requests.get(
         link,
@@ -22,8 +21,13 @@ for link in links:
 
     event = parse_event(soup)
 
-    print("=" * 80)
-    print(event["title"])
-    print(event["description"])
-    print(event["image"])
-    print(link)
+    event["url"] = link
+
+    events.append(event)
+
+calendar = build_calendar(events)
+
+with open("THS-MED.ics", "wb") as f:
+    f.write(calendar.to_ical())
+
+print(f"Created calendar with {len(events)} events")
