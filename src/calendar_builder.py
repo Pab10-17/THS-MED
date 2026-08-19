@@ -1,26 +1,31 @@
 from datetime import datetime
+from dateutil.parser import parse
 from icalendar import Calendar, Event
 
 
 def build_calendar(events):
 
     cal = Calendar()
-
     cal.add("prodid", "-//THS-MED//EN")
     cal.add("version", "2.0")
 
     for item in events:
 
-        event = Event()
+        for event_date in item["dates"]:
 
-        event.add("summary", item["title"])
+            e = Event()
 
-        event.add("description", item["description"])
+            e.add("summary", item["title"])
+            e.add("description", item["description"])
+            e.add("url", item["url"])
 
-        event.add("url", item["url"])
+            dt = parse(event_date, dayfirst=True)
 
-        event.add("dtstamp", datetime.utcnow())
+            e.add("dtstart", dt.date())
+            e.add("dtend", dt.date())
 
-        cal.add_component(event)
+            e.add("dtstamp", datetime.utcnow())
+
+            cal.add_component(e)
 
     return cal
