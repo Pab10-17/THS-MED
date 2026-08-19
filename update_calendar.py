@@ -13,15 +13,17 @@ response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")
 
-print("Title:")
-print(soup.title.text)
+print("=== H1 ===")
 
-print("\nJSON-LD scripts found:")
+for h1 in soup.find_all("h1"):
+    print(h1.get_text(strip=True))
 
-scripts = soup.find_all("script", type="application/ld+json")
+print("\n=== H2 ===")
 
-print(len(scripts))
+for h2 in soup.find_all("h2"):
+    print(h2.get_text(strip=True))
 
-for i, script in enumerate(scripts):
-    print(f"\n--- JSON Script {i+1} ---")
-    print(script.text[:1000])
+print("\n=== H3 ===")
+
+for h3 in soup.find_all("h3"):
+    print(h3.get_text(strip=True))
