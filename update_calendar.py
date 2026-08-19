@@ -1,20 +1,29 @@
 import requests
 from bs4 import BeautifulSoup
 
+from src.scraper import get_event_links
 from src.parser import parse_event
 
-url = "https://www.tottenhamhotspurstadium.com/events/1075568/jay-z"
+links = get_event_links()
 
-response = requests.get(
-    url,
-    headers={"User-Agent": "Mozilla/5.0"},
-    timeout=30,
-)
+print(f"Found {len(links)} events\n")
 
-response.raise_for_status()
+for link in links:
 
-soup = BeautifulSoup(response.text, "html.parser")
+    response = requests.get(
+        link,
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=30,
+    )
 
-event = parse_event(soup)
+    response.raise_for_status()
 
-print(event)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    event = parse_event(soup)
+
+    print("=" * 80)
+    print(event["title"])
+    print(event["description"])
+    print(event["image"])
+    print(link)
