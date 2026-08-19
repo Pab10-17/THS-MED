@@ -48,7 +48,6 @@ for item in data["content"]:
 
 print(f"Found {len(events)} events")
 
-print(events[0])
 calendar = build_calendar(events)
 
 with open("THS-MED.ics", "wb") as f:
