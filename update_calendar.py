@@ -13,11 +13,11 @@ response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")
 
-# Print every element that has a class containing "date"
 for tag in soup.find_all(True):
     classes = tag.get("class") or []
-    if any("date" in c.lower() for c in classes):
-        print("-" * 80)
+
+    if any("key-info" in c.lower() for c in classes):
+        print("=" * 80)
         print(tag.name)
         print(classes)
-        print(tag.get_text(" ", strip=True))
+        print(tag.get_text(" | ", strip=True))
