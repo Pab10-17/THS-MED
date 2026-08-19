@@ -1,33 +1,23 @@
 import requests
 from bs4 import BeautifulSoup
 
-from src.scraper import get_event_links
-from src.parser import parse_event
-from src.calendar_builder import build_calendar
+url = "https://www.tottenhamhotspurstadium.com/events/1075568/jay-z"
 
-events = []
+response = requests.get(
+    url,
+    headers={"User-Agent": "Mozilla/5.0"},
+    timeout=30,
+)
 
-for link in get_event_links():
+response.raise_for_status()
 
-    response = requests.get(
-        link,
-        headers={"User-Agent": "Mozilla/5.0"},
-        timeout=30,
-    )
+soup = BeautifulSoup(response.text, "html.parser")
 
-    response.raise_for_status()
-
-    soup = BeautifulSoup(response.text, "html.parser")
-
-    event = parse_event(soup)
-
-    event["url"] = link
-
-    events.append(event)
-
-calendar = build_calendar(events)
-
-with open("THS-MED.ics", "wb") as f:
-    f.write(calendar.to_ical())
-
-print(f"Created calendar with {len(events)} events")
+# Print every element that has a class containing "date"
+for tag in soup.find_all(True):
+    classes = tag.get("class") or []
+    if any("date" in c.lower() for c in classes):
+        print("-" * 80)
+        print(tag.name)
+        print(classes)
+        print(tag.get_text(" ", strip=True))
