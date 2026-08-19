@@ -1,43 +1,46 @@
 import requests
 
 BASE_URL = "https://www.tottenhamhotspurstadium.com"
-
-API_URL = (
-    "https://api.tottenhamhotspurstadium.com/content/"
-    "thstadium/text/EN?limit=100&offset=0&tagExpression=(%22event:2026%22)"
-)
+API_BASE = "https://api.tottenhamhotspurstadium.com/content/thstadium/text/EN"
 
 
 def get_event_links():
-    response = requests.get(
-        API_URL,
-        headers={"User-Agent": "Mozilla/5.0"},
-        timeout=30,
-    )
-
-    response.raise_for_status()
-
-    data = response.json()
-
     links = []
+    seen = set()
 
-    for item in data.get("content", []):
-        title = item.get("title", "")
-        slug = item.get("titleUrlSegment", "")
+    year = 2026
 
-        # Skip invalid items
-        if not slug:
-            continue
+    while True:
+        response = requests.get(
+            f"{API_BASE}?limit=100&offset=0&tagExpression=(%22event:{year}%22)",
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=30,
+        )
 
-        # Skip duplicate copy events
-        if slug.startswith("copy-"):
-            continue
+        response.raise_for_status()
 
-        url = f"{BASE_URL}/events/{item['id']}/{slug}"
+        data = response.json()
+        events = data.get("content", [])
 
-        print(title)
-        print(url)
+        if not events:
+            break
 
-        links.append(url)
+        print(f"\n{year}: {len(events)} events")
+
+        for item in events:
+            slug = item.get("titleUrlSegment", "")
+
+            if not slug or slug.startswith("copy-"):
+                continue
+
+            url = f"{BASE_URL}/events/{item['id']}/{slug}"
+
+            if url not in seen:
+                seen.add(url)
+                links.append(url)
+
+        year += 1
+
+    print(f"\nFound {len(links)} unique events")
 
     return links
