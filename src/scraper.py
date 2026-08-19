@@ -25,7 +25,12 @@ def get_event_links():
         title = item.get("title", "")
         slug = item.get("titleUrlSegment", "")
 
+        # Skip invalid items
         if not slug:
+            continue
+
+        # Skip duplicate copy events
+        if slug.startswith("copy-"):
             continue
 
         url = f"{BASE_URL}/events/{item['id']}/{slug}"
