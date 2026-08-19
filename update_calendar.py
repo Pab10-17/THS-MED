@@ -1,23 +1,31 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.tottenhamhotspurstadium.com/events/1075568/jay-z"
+from src.scraper import get_event_links
+from src.parser import parse_event
+from src.calendar_builder import build_calendar
 
-response = requests.get(
-    url,
-    headers={"User-Agent": "Mozilla/5.0"},
-    timeout=30,
-)
+events = []
 
-response.raise_for_status()
+for link in get_event_links():
+    response = requests.get(
+        link,
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=30,
+    )
 
-soup = BeautifulSoup(response.text, "html.parser")
+    response.raise_for_status()
 
-for tag in soup.find_all(True):
-    classes = tag.get("class") or []
+    soup = BeautifulSoup(response.text, "html.parser")
 
-    if any("key-info" in c.lower() for c in classes):
-        print("=" * 80)
-        print(tag.name)
-        print(classes)
-        print(tag.get_text(" | ", strip=True))
+    event = parse_event(soup)
+    event["url"] = link
+
+    events.append(event)
+
+calendar = build_calendar(events)
+
+with open("THS-MED.ics", "wb") as f:
+    f.write(calendar.to_ical())
+
+print(f"Created calendar with {len(events)} events")
