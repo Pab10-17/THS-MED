@@ -1,5 +1,7 @@
 import requests
-import re
+from bs4 import BeautifulSoup
+
+from src.parser import parse_event
 
 url = "https://www.tottenhamhotspurstadium.com/events/1075568/jay-z"
 
@@ -11,24 +13,8 @@ response = requests.get(
 
 response.raise_for_status()
 
-html = response.text
+soup = BeautifulSoup(response.text, "html.parser")
 
-patterns = [
-    "4 September",
-    "September",
-    "Friday",
-    "2026",
-    "19:00",
-    "Doors",
-    "Kick",
-]
+event = parse_event(soup)
 
-for pattern in patterns:
-    print(f"\n===== {pattern} =====")
-
-    for match in re.finditer(pattern, html, re.IGNORECASE):
-        start = max(0, match.start() - 200)
-        end = min(len(html), match.end() + 200)
-
-        print(html[start:end])
-        print("-" * 80)
+print(event)
