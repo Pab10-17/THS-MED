@@ -28,3 +28,14 @@ jobs:
 
       - name: Run updater
         run: python update_calendar.py
+
+      - name: Commit updated calendar
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add THS-MED.ics
+
+          git diff --staged --quiet || git commit -m "Auto update THS-MED calendar"
+
+          git push
