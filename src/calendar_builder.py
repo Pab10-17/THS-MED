@@ -10,28 +10,27 @@ def build_calendar(events):
     cal.add("prodid", "-//THS-MED//EN")
     cal.add("version", "2.0")
 
-    # Sort by date
-    events.sort(key=lambda e: parse(e["dates"][0], dayfirst=True))
+    # Sort by start date
+    events.sort(key=lambda e: parse(e["start"]))
 
     for item in events:
-        for date in item["dates"]:
-            event = Event()
+        event = Event()
 
-            dt = parse(date, dayfirst=True)
+        start = parse(item["start"])
+        end = parse(item["end"])
 
-            # Stable UID
-            uid = hashlib.md5(
-                f"{item['title']}-{date}".encode("utf-8")
-            ).hexdigest() + "@ths-med"
+        uid = hashlib.md5(
+            f"{item['title']}{item['start']}".encode("utf-8")
+        ).hexdigest() + "@ths-med"
 
-            event.add("uid", uid)
-            event.add("summary", item["title"])
-            event.add("description", item["description"])
-            event.add("url", item["url"])
-            event.add("dtstart", dt.date())
-            event.add("dtend", dt.date())
-            event.add("dtstamp", datetime.utcnow())
+        event.add("uid", uid)
+        event.add("summary", item["title"])
+        event.add("description", item["description"])
+        event.add("url", item["url"])
+        event.add("dtstart", start)
+        event.add("dtend", end)
+        event.add("dtstamp", datetime.utcnow())
 
-            cal.add_component(event)
+        cal.add_component(event)
 
     return cal
