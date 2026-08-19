@@ -8,27 +8,30 @@ def get_meta_content(soup, attribute, value):
 
 
 def parse_event(soup):
-
     title = get_meta_content(soup, "property", "og:title")
     description = get_meta_content(soup, "property", "og:description")
     image = get_meta_content(soup, "property", "og:image")
 
+    year = None
+    if description:
+        match = re.search(r"(20\d{2})", description)
+        if match:
+            year = match.group(1)
+
     dates = []
 
     for tag in soup.select(".w-key-info__date"):
-        date = tag.get_text(" ", strip=True)
+        day = tag.select_one(".w-key-info__date-day").get_text(strip=True)
+        month = tag.select_one(".w-key-info__date-month").get_text(strip=True)
+
+        date = f"{day} {month} {year}"
 
         if date not in dates:
             dates.append(date)
-
-    year_match = re.search(r"20\d\d", description or "")
-    year = year_match.group(0) if year_match else ""
-
-    full_dates = [f"{d} {year}" for d in dates]
 
     return {
         "title": title,
         "description": description,
         "image": image,
-        "dates": full_dates,
+        "dates": dates,
     }
