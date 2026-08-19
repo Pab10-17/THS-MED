@@ -4,28 +4,27 @@ from icalendar import Calendar, Event
 
 
 def build_calendar(events):
-
     cal = Calendar()
+
     cal.add("prodid", "-//THS-MED//EN")
     cal.add("version", "2.0")
 
     for item in events:
+        for date in item["dates"]:
 
-        for event_date in item["dates"]:
+            event = Event()
 
-            e = Event()
+            event.add("summary", item["title"])
+            event.add("description", item["description"])
+            event.add("url", item["url"])
 
-            e.add("summary", item["title"])
-            e.add("description", item["description"])
-            e.add("url", item["url"])
+            dt = parse(date, dayfirst=True)
 
-            dt = parse(event_date, dayfirst=True)
+            event.add("dtstart", dt.date())
+            event.add("dtend", dt.date())
 
-            e.add("dtstart", dt.date())
-            e.add("dtend", dt.date())
+            event.add("dtstamp", datetime.utcnow())
 
-            e.add("dtstamp", datetime.utcnow())
-
-            cal.add_component(e)
+            cal.add_component(event)
 
     return cal
