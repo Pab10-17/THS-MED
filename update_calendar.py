@@ -1,8 +1,27 @@
-from src.scraper import get_event_links
+import requests
+from bs4 import BeautifulSoup
 
-links = get_event_links()
+url = "https://www.tottenhamhotspurstadium.com/events/1075568/jay-z"
 
-print(f"Found {len(links)} event links")
+response = requests.get(
+    url,
+    headers={"User-Agent": "Mozilla/5.0"},
+    timeout=30,
+)
 
-for link in links:
-    print(link)
+response.raise_for_status()
+
+soup = BeautifulSoup(response.text, "html.parser")
+
+print("Title:")
+print(soup.title.text)
+
+print("\nJSON-LD scripts found:")
+
+scripts = soup.find_all("script", type="application/ld+json")
+
+print(len(scripts))
+
+for i, script in enumerate(scripts):
+    print(f"\n--- JSON Script {i+1} ---")
+    print(script.text[:1000])
