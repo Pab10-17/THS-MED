@@ -31,7 +31,7 @@ BEGIN:VEVENT
 SUMMARY:🏉 Saracens: The Showdown 6
 DTSTART:20260328T180000Z
 DTEND:20260328T200000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:4c67add277ba6237ca043132c83796df@ths-med
 DESCRIPTION:Saracens return to Tottenham Hotspur Stadium on Saturday 28 Ma
  rch 2026\, for an unmissable double-header\n\n📍 Tottenham Hotspur Stadi
@@ -46,7 +46,7 @@ BEGIN:VEVENT
 SUMMARY:🥊 Tyson Fury vs Arslanbek Makhmudov
 DTSTART:20260411T160000Z
 DTEND:20260411T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:36205551670f7002660227b5f1e86da2@ths-med
 DESCRIPTION:Tottenham Hotspur Stadium will once again host heavyweight box
  ing as Tyson Fury takes on Arslanbek Makhmudov on Saturday 11 April.\n\n
@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Leeds
 DTSTART:20260511T190000Z
 DTEND:20260511T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:775172fe9bdaba01a95e8d959137fd6b@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Monday 11 May 2026\n🕒 19:00 - 22:00\n\nMore information:\nhttps://
@@ -73,7 +73,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Everton
 DTSTART:20260524T150000Z
 DTEND:20260524T170000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:58264ba1329d4cecf96dc9765906a6bf@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Sunday 24 May 2026\n🕒 15:00 - 17:00\n\nMore information:\nhttps://
@@ -86,7 +86,7 @@ BEGIN:VEVENT
 SUMMARY:🎤 Zach Bryan: With Heaven On Tour
 DTSTART:20260616T180000Z
 DTEND:20260617T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:96b537b7d3c16467add20e09d7ded8b0@ths-med
 DESCRIPTION:Zach Bryan will performed at Tottenham Hotspur Stadium on Tues
  day 16 and Wednesday 17 June 2026.\n\n📍 Tottenham Hotspur Stadium\n📅
@@ -101,7 +101,7 @@ BEGIN:VEVENT
 SUMMARY:🎤 Gorillaz
 DTSTART:20260620T180000Z
 DTEND:20260620T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:dbf6ccbf5791ade175a8d2aab2653d6e@ths-med
 DESCRIPTION:Gorillaz performed at Tottenham Hotspur Stadium on Saturday 20
   June 2026.\n\n📍 Tottenham Hotspur Stadium\n📅 Saturday 20 June 2026
@@ -114,7 +114,7 @@ BEGIN:VEVENT
 SUMMARY:🎤 Bad Bunny
 DTSTART:20260627T180000Z
 DTEND:20260628T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:a874fc0aad7423397f447243ddd6dde2@ths-med
 DESCRIPTION:Bad Bunny performed at Tottenham Hotspur Stadium on Saturday 2
  7 and Sunday 28 June\, 2026\n\n📍 Tottenham Hotspur Stadium\n📅 Saturd
@@ -127,7 +127,7 @@ BEGIN:VEVENT
 SUMMARY:🎤 BTS WORLD TOUR
 DTSTART:20260706T180000Z
 DTEND:20260707T210000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:4f42286e62320b336277670b74bcf74b@ths-med
 DESCRIPTION:Pop Royalty BTS performed at Tottenham Hotspur Stadium Monday 
  6 & Tuesday 7 July 2026\n\n📍 Tottenham Hotspur Stadium\n📅 Monday 06 
@@ -140,7 +140,7 @@ BEGIN:VEVENT
 SUMMARY:🎤 System Of A Down
 DTSTART:20260713T180000Z
 DTEND:20260715T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:ee7ed964154a3cf4d7a59e789eed4583@ths-med
 DESCRIPTION:System Of A Down performed at Tottenham Hotspur Stadium on Mon
  day 13 and Wednesday 15 July 2026.\n\n📍 Tottenham Hotspur Stadium\n📅
@@ -154,7 +154,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs TSG Hoffenheim
 DTSTART:20260815T140000Z
 DTEND:20260815T140000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:63a8dbc5ec89de7386df63c3a518977c@ths-med
 DESCRIPTION:Men's first team friendly fixture.\n\n📍 Tottenham Hotspur S
  tadium\n📅 Saturday 15 August 2026\n🕒 14:00 - 14:00\n\nMore informati
@@ -168,7 +168,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Newcastle
 DTSTART:20260829T163000Z
 DTEND:20260829T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:daf5a3b16236f368ded158485fdbf92c@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Saturday 29 August 2026\n🕒 16:30 - 22:00\n\nMore information:\nhtt
@@ -181,7 +181,7 @@ BEGIN:VEVENT
 SUMMARY:🎤 JAŸ-Z
 DTSTART:20260904T180000Z
 DTEND:20260904T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:3a1609fe1ec661dfdcbe5fd0c3b3f8be@ths-med
 DESCRIPTION:JAŸ-Z will perform at Tottenham Hotspur Stadium on Friday 4 S
  eptember\, 2026 & Saturday 5 September\n\n📍 Tottenham Hotspur Stadium\n
@@ -194,7 +194,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Everton
 DTSTART:20260912T163000Z
 DTEND:20260912T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:36208b63a2077e9425ce4c4734c52e6b@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Saturday 12 September 2026\n🕒 16:30 - 22:00\n\nMore information:\n
@@ -208,7 +208,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Aston Villa
 DTSTART:20260919T113000Z
 DTEND:20260919T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:2001dda7364b2d0b1cbc46fa965007ad@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Saturday 19 September 2026\n🕒 11:30 - 22:00\n\nMore information:\n
@@ -222,7 +222,7 @@ BEGIN:VEVENT
 SUMMARY:🎤 BIGBANG
 DTSTART:20260926T180000Z
 DTEND:20260926T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:6858e6cafc1a7f08751144eb761c311d@ths-med
 DESCRIPTION:BIGBANG will perform at Tottenham Hotspur Stadium on Saturday 
  26 September\, 2026.\n\n📍 Tottenham Hotspur Stadium\n📅 Saturday 26 S
@@ -235,7 +235,7 @@ BEGIN:VEVENT
 SUMMARY:🏈 2026 NFL London Games
 DTSTART:20261004T180000Z
 DTEND:20261011T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:b88636e532157464e2e844498f838bc9@ths-med
 DESCRIPTION:Tottenham Hotspur Stadium will once again host NFL action in 2
  026\, with two blockbuster London Games confirmed for October as part of t
@@ -249,7 +249,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Coventry City
 DTSTART:20261019T190000Z
 DTEND:20261019T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:946bac4bba9a93f7344f3e8bf87b84d9@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Monday 19 October 2026\n🕒 19:00 - 22:00\n\nMore information:\nhttp
@@ -263,7 +263,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Crystal Palace
 DTSTART:20261031T173000Z
 DTEND:20261031T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:0f377c7314a0446e412ec1e5d412c2ea@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Saturday 31 October 2026\n🕒 17:30 - 22:00\n\nMore information:\nht
@@ -277,7 +277,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Ipswich Town
 DTSTART:20261121T150000Z
 DTEND:20261121T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:a1fe5e90f74f69d6738b2dabcb820261@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Saturday 21 November 2026\n🕒 15:00 - 22:00\n\nMore information:\nh
@@ -291,7 +291,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Fulham
 DTSTART:20261202T200000Z
 DTEND:20261202T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:c9d7ac4efe05f700dca79c12aa056369@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Wednesday 02 December 2026\n🕒 20:00 - 22:00\n\nMore information:\n
@@ -303,7 +303,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Arsenal
 DTSTART:20261205T150000Z
 DTEND:20261205T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:60853a61073ba81fa15daa10a37680cd@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Saturday 05 December 2026\n🕒 15:00 - 22:00\n\nMore information:\nh
@@ -316,7 +316,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Bournemouth
 DTSTART:20261226T150000Z
 DTEND:20261226T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:2927495e157239ca59db05e5d960f6fd@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Saturday 26 December 2026\n🕒 15:00 - 22:00\n\nMore information:\nh
@@ -330,7 +330,7 @@ BEGIN:VEVENT
 SUMMARY:⚽ Spurs vs Brighton and Hove Albion
 DTSTART:20261230T200000Z
 DTEND:20261230T220000Z
-DTSTAMP:20260826T120052Z
+DTSTAMP:20260826T163706Z
 UID:2d456f5ba7cc65089d34c9a3722802d8@ths-med
 DESCRIPTION:Men's first team fixture.\n\n📍 Tottenham Hotspur Stadium\n
  📅 Wednesday 30 December 2026\n🕒 20:00 - 22:00\n\nMore information:\n
